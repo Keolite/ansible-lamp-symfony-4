@@ -1,0 +1,23 @@
+- name: Add a line vagrant
+  lineinfile:
+    path: /var/www/html/.gitignore
+    line: /.vagrant
+    create: yes
+
+- name: Add a line vagrantFile
+  lineinfile:
+    path: /var/www/html/.gitignore
+    line: /Vagrantfile
+    create: yes
+
+- name: Add a line vagrant
+  lineinfile:
+    path: /var/www/html/.gitignore
+    line: /*.log
+    create: yes
+
+- name: Add a line vagrant
+  lineinfile:
+    path: /var/www/html/.gitignore
+    line: /.idea/
+    create: yes

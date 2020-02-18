@@ -1,0 +1,13 @@
+- hosts: all
+  roles:
+    - utilitaires
+    - apache2
+    - php7_2
+    - mariadb10_4
+    - adminer
+    - composer
+    - nodejs
+    - yarn
+    - user_database_project
+    - symfony4
+    - gitignore

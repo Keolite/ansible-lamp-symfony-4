@@ -1,0 +1,75 @@
+#- name: Create a directory if it does not exist
+#  file:
+#    path: /var/www/html/my_project
+#    state: directory
+#    mode: '0755'
+#  become: yes
+#  become_user: vagrant
+#
+#- name: install symfony
+#  composer:
+#    command: create-project
+#    arguments: symfony/website-skeleton:^4.4 ./
+#    working_dir: /var/www/html/my_project
+#    prefer_dist: yes
+#  become: yes
+#  become_user: vagrant
+#
+#
+#- name: Upload html app directory to Deployment host
+#  copy:
+#    src: "/var/www/html/my_project/"
+#    dest: "/var/www/html"
+#    directory_mode: yes
+#  become: yes
+#  become_user: vagrant
+#
+#- name: Remove download
+#  file:
+#    path: /var/www/html/my_project
+#    state: absent
+
+#- name: Install orm-fixtures
+#  composer:
+#    command: require
+#    arguments: orm-fixtures
+#    no_dev: no
+#    working_dir: /var/www/html
+#  become: yes
+#  become_user: vagrant
+
+- name: add subdomaine
+  template:
+    src: default.j2
+    dest: "/etc/apache2/sites-available/000-default.conf"
+
+
+- name: restart apache2
+  service:
+    name: "apache2"
+    state: restarted
+
+
+#- name: Reglage base de données user
+#  replace:
+#    path: /var/www/html/.env
+#    regexp: 'db_user'
+#    replace: '{{ dbuser }}'
+#
+#- name: Reglage base de données password
+#  replace:
+#    path: /var/www/html/.env
+#    regexp: 'db_password'
+#    replace: '{{ pwduserdb }}'
+#
+#- name: Reglage base de données dbname
+#  replace:
+#    path: /var/www/html/.env
+#    regexp: 'db_name'
+#    replace: '{{dbname}}'
+#
+#- name: Reglage base de données version
+#  replace:
+#    path: /var/www/html/.env
+#    regexp: '5.7'
+#    replace: '{{versiondb}}'

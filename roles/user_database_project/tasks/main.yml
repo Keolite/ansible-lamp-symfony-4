@@ -1,0 +1,17 @@
+- name: Create a new database of project
+  mysql_db:
+    login_user: root
+    login_password: "{{ pwddb }}"
+    name: "{{ dbname }}"
+    encoding: "utf8"
+    state: present
+
+- name: Create database user for project
+  mysql_user:
+    login_user: root
+    login_password: "{{ pwddb }}"
+    host: "localhost"
+    name: '{{ dbuser }}'
+    password: '{{ pwduserdb }}'
+    priv: '{{ dbname }}.*:ALL'
+    state: present
