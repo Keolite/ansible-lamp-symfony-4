@@ -37,7 +37,7 @@ La machine invitée contiendra :
 
 ### 5 - Initialisation de la machine vagrant
 * Dans votre terminal placez-vous dans le dossier nouvellement créé
-* lancez la commande ci-dessous  `vagrant init ubuntu/bionic64`
+* lancez la commande  `vagrant init ubuntu/bionic64`
  
  Un fichier Vagrantfile sera créé dans le dossier du projet.
  
@@ -45,10 +45,10 @@ La machine invitée contiendra :
 <img height="72" alt="vagrant_file" src="https://user-images.githubusercontent.com/26669933/74860597-37aca200-5349-11ea-9cde-e2ac4fd90485.png">
 
 ### 6 Configuration de la machnine virtuelle
-
- * Décommenter la ligne  `config.vm.network "forwarded_port", guest: 80, host: 8080, host_ip: "127.0.0.1"`
- * Décommenter la ligne  `config.vm.synced_folder "../data", "/vagrant_data"` et modifier la ligne par les valeurs suivantes : `config.vm.synced_folder "./", "/var/www/html"` pour faire un lien symbolique entre le dossier du projet de la machine hôte avec le dossier html de la machine invitée.
- * Remplacer le code 
+* Ouvrir le fichier Vagrantfile.
+* Décommenter la ligne  `config.vm.network "forwarded_port", guest: 80, host: 8080, host_ip: "127.0.0.1"`
+* Décommenter la ligne  `config.vm.synced_folder "../data", "/vagrant_data"` et modifier la ligne par les valeurs suivantes : `config.vm.synced_folder "./", "/var/www/html"` pour faire un lien symbolique entre le dossier du projet de la machine hôte avec le dossier html de la machine invitée.
+* Remplacer le code 
  
    ```
    # config.vm.provider "virtualbox" do |vb|
