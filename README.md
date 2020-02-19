@@ -1,5 +1,18 @@
 # With Ansible
-## [Vagrant - Ubuntu-bionic 64 - Apache - PHP 7.2 - Composer - Mariadb 10.4 - nodejs - yarn - Symfony 4.4 website]
+## [Vagrant - Ubuntu-bionic 64 - Apache - PHP - Composer - Mariadb - nodejs - yarn - Symfony 4.4 website]
+
+La machine invitée contiendra :
+
+* Ansible latest
+* Apache2
+* Mariadb 10.4
+* PHP 7.2
+* Composer latest
+* nodejs 12.16
+* yarn latest
+* adminer latest
+* Symfony 4.4 website-skeleton
+
 ### 1 - Vérification
 
 * Choisir le provider de gestion de machine virtuelle.
