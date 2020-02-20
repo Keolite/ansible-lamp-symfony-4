@@ -109,11 +109,20 @@ config.vm.provision "shell", inline: <<-SHELL
 
 * Modifier les valeurs ci-dessous par les votres (Ci dessous est un exemple)
 ```
-     pwddb="siaAustralie!545"
+     pwddb="siaAustralie545"
      dbname="blog"
-     dbuser="symfony_admin"
-     pwduserdb="taylor#Swift251!"
+     dbuser="symfonyadmin"
+     pwduserdb="taylorSwift251"
 ```
 ### 7 Démarrage de la machine et installation des technos (Provision)
 * Démarrer la machine virtuelle avec l'option de provisioner la machine
 `vagrant up --provision`
+
+### 8 Utiliser la machine virtuelle
+* Pour accéder à la base de données saisir l'url `adminer.localhost:8080`
+
+<img width="364" alt="adminer" src="https://user-images.githubusercontent.com/26669933/74973236-60a16580-5423-11ea-87dc-3863a420155b.png">
+
+* Pour accéder à l'application saisir l'url `localhost:8080`
+
+Pas besoin de .htaccess la configration est réalisée dans le fichier _/etc/apache2/sites-available/000-default.conf_
