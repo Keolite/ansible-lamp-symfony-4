@@ -85,11 +85,10 @@ par (Ce code sera exécuter à l'installation de la machine pour installé toute
 config.vm.provision "shell", inline: <<-SHELL
 
      ip="127.0.0.1"
-     pwddb="mot_de_passe_root_maraidb"
+     pwddb="mot_de_passe_root_mariadb"
      dbname="nom_base_de_donnees"
      dbuser="nom_du_user_propre_a_la_base_de_donnees"
      pwduserdb="mot_de_passe_du_user_proore_a_la_base_de_donnees"
-     versiondb="mariadb-10.4.12"
     
      apt update
      apt upgrade -y
@@ -103,7 +102,7 @@ config.vm.provision "shell", inline: <<-SHELL
      echo "${ip}" >> /etc/ansible/host
 
      git clone https://github.com/Keolite/ansible-lamp-symfony-4.git /home/vagrant/ansible
-     ansible-playbook /home/vagrant/ansible/general.yml -i "${ip}," -v -c local -u root --extra-vars "pwddb=${pwddb} dbname=${dbname} dbuser=${dbuser} pwduserdb=${pwduserdb} versiondb=${versiondb}"
+     ansible-playbook /home/vagrant/ansible/general.yml -i "${ip}," -v -c local -u root --extra-vars "pwddb=${pwddb} dbname=${dbname} dbuser=${dbuser} pwduserdb=${pwduserdb} "
     SHELL
 ```
 

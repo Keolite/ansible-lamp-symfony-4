@@ -30,5 +30,5 @@
     # optionally set the value of the environment variables used in the application
     SetEnv APP_ENV dev
     SetEnv APP_SECRET <app-secret-id>
-    SetEnv DATABASE_URL "mysql://{{ dbuser }}:{{ pwduserdb }}@127.0.0.1:3306/{{ dbname }}?serverVersion={{ versiondb }}"
+    SetEnv DATABASE_URL "mysql://{{ dbuser }}:{{ pwduserdb }}@127.0.0.1:3306/{{ dbname }}?serverVersion=mariadb-10.4.12"
 </VirtualHost>

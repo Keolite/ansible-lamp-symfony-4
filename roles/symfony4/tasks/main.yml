@@ -83,4 +83,4 @@
   replace:
     path: /var/www/html/.env
     regexp: '5.7'
-    replace: '{{versiondb}}'
+    replace: 'mariadb-10.4.12'
