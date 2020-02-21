@@ -106,7 +106,7 @@ config.vm.provision "shell", inline: <<-SHELL
     SHELL
 ```
 
-* Modifier les valeurs ci-dessous par les votres (Ci dessous est un exemple)
+* Modifier les valeurs ci-dessous par les votres (comme l'exemple ci-dessous)
 ```
      pwddb="siaAustralie545"
      dbname="blog"
@@ -114,7 +114,7 @@ config.vm.provision "shell", inline: <<-SHELL
      pwduserdb="taylorSwift251"
 ```
 ### 7 Démarrage de la machine et installation des technos (Provision)
-* Démarrer la machine virtuelle avec l'option de provisioner la machine
+* Démarrer la machine virtuelle avec l'option de 'provision'
 `vagrant up --provision`
 
 ### 8 Utiliser la machine virtuelle
