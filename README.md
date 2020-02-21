@@ -18,7 +18,7 @@ La machine invitée contiendra :
 * Choisir le provider de gestion de machine virtuelle.
 [Liste des providers](https://www.vagrantup.com/docs/providers/)
 
-* Vérifier quelle version du provider est compatible avec la version de votre provider.
+* Vérifier quelle version du provider est compatible avec la version de vagrant.
 [Exemple avec VirtualBox](https://www.vagrantup.com/docs/virtualbox/)
 
 ### 2 - Installer votre provider
