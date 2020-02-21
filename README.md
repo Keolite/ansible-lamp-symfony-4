@@ -127,3 +127,4 @@ config.vm.provision "shell", inline: <<-SHELL
 Pas besoin de .htaccess la configration est réalisée dans le fichier _/etc/apache2/sites-available/000-default.conf_
 
 <img width="796" alt="symfo-4" src="https://user-images.githubusercontent.com/26669933/75065490-4336cf00-54e9-11ea-9b49-cb71682cf811.png">
+* Accéder à la machine invitée avec la commande `vagrant ssh`
