@@ -15,14 +15,27 @@
   become: yes
   become_user: vagrant
 
-
-- name: Upload html app directory to Deployment host
-  copy:
-    src: "/var/www/html/my_project/"
-    dest: "/var/www/html"
-    directory_mode: yes
+- name: Compress directory
+  archive:
+    path: /var/www/html/my_project/
+    dest: /var/www/html/my_project/compress.tgz
   become: yes
   become_user: vagrant
+
+- name: Extract
+  unarchive:
+    src: /var/www/html/my_project/compress.tgz
+    dest: /var/www/html
+  become: yes
+  become_user: vagrant
+
+#- name: Upload html app directory to Deployment host
+#  copy:
+#    src: "/var/www/html/my_project/"
+#    dest: "/var/www/html"
+#    directory_mode: yes
+#  become: yes
+#  become_user: vagrant
 
 - name: Remove download
   file:
