@@ -1,0 +1,13 @@
+- name: Add the user 'vagrant' to group www-data
+  user:
+    name: vagrant
+    group: www-data
+
+- name: Define Vagrant owner and www-data as group et vagrant or group can execute, write
+  file:
+    path: /var/www/html
+    state: directory
+    recurse: yes
+    owner: vagrant
+    group: www-data
+    mode: '0775'
