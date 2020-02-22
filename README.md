@@ -88,7 +88,7 @@ config.vm.provision "shell", inline: <<-SHELL
      pwddb="mot_de_passe_root_mariadb"
      dbname="nom_base_de_donnees"
      dbuser="nom_du_user_propre_a_la_base_de_donnees"
-     pwduserdb="mot_de_passe_du_user_proore_a_la_base_de_donnees"
+     pwduserdb="mot_de_passe_du_user_propre_a_la_base_de_donnees"
     
      apt update
      apt upgrade -y
