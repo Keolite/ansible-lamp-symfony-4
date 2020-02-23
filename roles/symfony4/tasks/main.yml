@@ -84,3 +84,16 @@
     path: /var/www/html/.env
     regexp: '5.7'
     replace: 'mariadb-10.4.12'
+
+- name: Install webpack encore
+  composer:
+    command: require
+    arguments: symfony/webpack-encore-bundle
+    no_dev: no
+    working_dir: /var/www/html
+  become: yes
+  become_user: vagrant
+
+- name: Install packages based on package.json.
+  yarn:
+    path: /var/www/html
