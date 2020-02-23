@@ -12,6 +12,8 @@ La machine invitée contiendra :
 * yarn latest
 * adminer latest
 * Symfony 4.4 website-skeleton
+* Pack symfony/orm-pack et symfony/webpack-encore-bundle
+* 
 
 ### 1 - Vérification
 
