@@ -94,6 +94,9 @@
   become: yes
   become_user: vagrant
 
-- name: Install packages based on package.json.
-  yarn:
-    path: /var/www/html
+- name: This command will change the working directory to somedir/.
+  shell:
+    cmd: yarn install --no-bin-links
+    chdir: /var/www/html
+  become: yes
+  become_user: vagrant
