@@ -48,7 +48,7 @@ La machine invitée contiendra :
 * Ouvrir le fichier Vagrantfile.
 * Décommenter la ligne  `config.vm.network "forwarded_port", guest: 80, host: 8080, host_ip: "127.0.0.1"` et ajouter owner: "vagrant", group: "www-data" comme l'exemple ci-dessous :
 
-`config.vm.network "forwarded_port", guest: 80, host: 8080, owner: "vagrant", group: "www-data"`
+`config.vm.network "forwarded_port", guest: 80, host: 8080`
 
  
 * Décommenter la ligne  `config.vm.synced_folder "../data", "/vagrant_data"` et modifier la ligne par les valeurs suivantes : `config.vm.synced_folder "./", "/var/www/html"` pour faire un lien symbolique entre le dossier du projet de la machine hôte avec le dossier html de la machine invitée.
