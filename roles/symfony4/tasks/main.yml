@@ -105,6 +105,6 @@
   shell:
     cmd: yarn add sass-loader node-sass --no-bin-links
     chdir: /var/www/html
-  when: {{ installSassLoader }} == true
+  when: "{{ installSassLoader }} == true"
   become: yes
   become_user: vagrant
