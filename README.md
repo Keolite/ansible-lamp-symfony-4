@@ -94,7 +94,8 @@ config.vm.provision "shell", inline: <<-SHELL
      dbname="nom_base_de_donnees"
      dbuser="nom_du_user_propre_a_la_base_de_donnees"
      pwduserdb="mot_de_passe_du_user_propre_a_la_base_de_donnees"
-    
+     installSassLoader=false
+
      apt update
      apt upgrade -y
      apt install -y python-software-properties
@@ -107,7 +108,7 @@ config.vm.provision "shell", inline: <<-SHELL
      echo "${ip}" >> /etc/ansible/host
 
      git clone https://github.com/Keolite/ansible-lamp-symfony-4.git /home/vagrant/ansible
-     ansible-playbook /home/vagrant/ansible/general.yml -i "${ip}," -v -c local -u root --extra-vars "pwddb=${pwddb} dbname=${dbname} dbuser=${dbuser} pwduserdb=${pwduserdb} "
+     ansible-playbook /home/vagrant/ansible/general.yml -i "${ip}," -v -c local -u root --extra-vars "pwddb=${pwddb} dbname=${dbname} dbuser=${dbuser} pwduserdb=${pwduserdb} installSassLoader=${installSassLoader}"
     SHELL
 ```
 
@@ -117,6 +118,7 @@ config.vm.provision "shell", inline: <<-SHELL
      dbname="blog"
      dbuser="symfonyadmin"
      pwduserdb="taylorSwift251"
+     installSassLoader=true
 ```
 ### 7 Démarrage de la machine et installation des technos (Provision)
 * Démarrer la machine virtuelle avec l'option de 'provision'
