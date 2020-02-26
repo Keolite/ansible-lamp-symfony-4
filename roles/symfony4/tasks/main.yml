@@ -143,7 +143,7 @@
   lineinfile:
     path: /var/www/html/package.json
     regexp: '^(.*)build(.*)$'
-    line: '        "build": "./node_modules/@symfony/webpack-encore/bin/encore.js production --progression",'
+    line: '        "build": "./node_modules/@symfony/webpack-encore/bin/encore.js production --progression"'
     backrefs: yes
   when: "{{ installSassLoader }} == true"
   become: yes
