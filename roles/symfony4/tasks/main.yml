@@ -148,3 +148,13 @@
   when: "{{ installSassLoader }} == true"
   become: yes
   become_user: vagrant
+
+- name: Active sass loader
+  lineinfile:
+    path: /var/www/html/webpack.config.js
+    regexp: '^(.*)enableSassLoader(.*)$'
+    line: '    .enableSassLoader()'
+    backrefs: yes
+  when: "{{ installSassLoader }} == true"
+  become: yes
+  become_user: vagrant
