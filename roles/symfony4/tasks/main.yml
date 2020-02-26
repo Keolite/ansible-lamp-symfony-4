@@ -94,7 +94,7 @@
   become: yes
   become_user: vagrant
 
-- name: This command will change the working directory to somedir/.
+- name: yarn install  --no-bin-links
   shell:
     cmd: yarn install --no-bin-links
     chdir: /var/www/html
@@ -109,11 +109,41 @@
   become: yes
   become_user: vagrant
 
-- name: Ensure the JBoss memory settings are exactly as needed
+- name: Change path into pckage.json for script
   lineinfile:
     path: /var/www/html/package.json
     regexp: '^(.*)dev-server(.*)$'
-    line: 'dev-server: ./node_modules/@symfony/webpack-encore/bin/encore.js dev-server'
+    line: '        "dev-server": "./node_modules/@symfony/webpack-encore/bin/encore.js dev-server",'
+    backrefs: yes
+  when: "{{ installSassLoader }} == true"
+  become: yes
+  become_user: vagrant
+
+- name: Change path into pckage.json for script
+  lineinfile:
+    path: /var/www/html/package.json
+    regexp: '^(.*)watch":(.*)$'
+    line: '        "watch": "./node_modules/@symfony/webpack-encore/bin/encore.js dev --watch",'
+    backrefs: yes
+  when: "{{ installSassLoader }} == true"
+  become: yes
+  become_user: vagrant
+
+- name: Change path into pckage.json for script
+  lineinfile:
+    path: /var/www/html/package.json
+    regexp: '^(.*)dev":(.*)$'
+    line: '        "dev": "./node_modules/@symfony/webpack-encore/bin/encore.js dev",'
+    backrefs: yes
+  when: "{{ installSassLoader }} == true"
+  become: yes
+  become_user: vagrant
+
+- name: Change path into pckage.json for script
+  lineinfile:
+    path: /var/www/html/package.json
+    regexp: '^(.*)build(.*)$'
+    line: '        "build": "./node_modules/@symfony/webpack-encore/bin/encore.js production --progression",'
     backrefs: yes
   when: "{{ installSassLoader }} == true"
   become: yes
