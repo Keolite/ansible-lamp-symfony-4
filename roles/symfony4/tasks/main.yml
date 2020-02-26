@@ -109,7 +109,7 @@
   become: yes
   become_user: vagrant
 
-- name: replace line
+- name: Ensure the JBoss memory settings are exactly as needed
   lineinfile:
     path: /var/www/html/package.json
     regexp: '^(.*)dev-server(.*)$'
@@ -118,4 +118,3 @@
   when: "{{ installSassLoader }} == true"
   become: yes
   become_user: vagrant
-
