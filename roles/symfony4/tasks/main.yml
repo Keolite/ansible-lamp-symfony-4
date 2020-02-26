@@ -111,7 +111,7 @@
 
 - name: replace line
   lineinfile:
-    dest: /var/www/html/package.json
+    path: /var/www/html/package.json
     regexp: '^(.*)dev-server(.*)$'
     line: '"dev-server": "./node_modules/@symfony/webpack-encore/bin/encore.js dev-server",'
     backrefs: yes
