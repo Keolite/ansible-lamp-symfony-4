@@ -109,38 +109,13 @@
   become: yes
   become_user: vagrant
 
-- name: Change path for machine virtual symboliklink
-  replace:
-    path: /var/www/html/package.json
-    regexp: '"dev-server": "encore dev-server"'
-    replace: '"dev-server": "./node_modules/@symfony/webpack-encore/bin/encore.js dev-server"'
+- name: replace line
+    lineinfile:
+      dest: /var/www/html/package.json
+      regexp: '^(.*)dev-server(.*)$'
+      line: '"dev-server": "./node_modules/@symfony/webpack-encore/bin/encore.js dev-server",'
+      backrefs: yes
   when: "{{ installSassLoader }} == true"
   become: yes
   become_user: vagrant
 
-- name: Change path for machine virtual symboliklink
-  replace:
-    path: /var/www/html/package.json
-    regexp: '"dev": "encore dev"'
-    replace: '"dev": "./node_modules/@symfony/webpack-encore/bin/encore.js dev"'
-  when: "{{ installSassLoader }} == true"
-  become: yes
-  become_user: vagrant
-
-- name: Change path for machine virtual symboliklink
-  replace:
-    path: /var/www/html/package.json
-    regexp: '"watch": "encore dev --watch"'
-    replace: '"watch": "./node_modules/@symfony/webpack-encore/bin/encore.js dev --watch"'
-  when: "{{ installSassLoader }} == true"
-  become: yes
-  become_user: vagrant
-
-- name: Change path for machine virtual symboliklink
-  replace:
-    path: /var/www/html/package.json
-    regexp: '"build": "encore production --progress"'
-    replace: '"build": "./node_modules/@symfony/webpack-encore/bin/encore.js production --progress"'
-  when: "{{ installSassLoader }} == true"
-  become: yes
-  become_user: vagrant
