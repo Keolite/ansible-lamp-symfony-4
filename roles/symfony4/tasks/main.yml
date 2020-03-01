@@ -103,7 +103,7 @@
 
 - name: Install sass-loader if true.
   shell:
-    cmd: yarn add sass-loader node-sass --no-bin-links
+    cmd: yarn add sass-loader@^7.0.2 node-sass --no-bin-links
     chdir: /var/www/html
   when: "{{ installSassLoader }} == true"
   become: yes
