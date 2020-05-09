@@ -39,10 +39,10 @@ La machine invitée contiendra :
 ### 5 - Initialisation de la machine vagrant
 * Dans votre terminal placez-vous dans le dossier nouvellement créé
 * lancez la commande  `vagrant init ubuntu/bionic64`
- 
+
  Un fichier Vagrantfile sera créé dans le dossier du projet.
- 
- 
+
+
 <img height="72" alt="vagrant_file" src="https://user-images.githubusercontent.com/26669933/74860597-37aca200-5349-11ea-9cde-e2ac4fd90485.png">
 
 ### 6 Configuration de la machnine virtuelle
@@ -51,10 +51,10 @@ La machine invitée contiendra :
 
 `config.vm.network "forwarded_port", guest: 80, host: 8080, owner: "vagrant", group: "www-data"`
 
- 
+
 * Décommenter la ligne  `config.vm.synced_folder "../data", "/vagrant_data"` et modifier la ligne par les valeurs suivantes : `config.vm.synced_folder "./", "/var/www/html"` pour faire un lien symbolique entre le dossier du projet de la machine hôte avec le dossier html de la machine invitée.
-* Remplacer le code 
- 
+* Remplacer le code
+
    ```
    # config.vm.provider "virtualbox" do |vb|
    #   Display the VirtualBox GUI when booting the machine
@@ -65,7 +65,7 @@ La machine invitée contiendra :
    # end
    ```
    par (pour allouer 2Go de mémmoire à la machine virtuelle vous pouvez bien sûre adapter la valeur à votre machine hôte)
-   
+
  ```
    config.vm.provider "virtualbox" do |vb|
      #   # Display the VirtualBox GUI when booting the machine
@@ -73,10 +73,10 @@ La machine invitée contiendra :
      #
      #   # Customize the amount of memory on the VM:
         vb.memory = "2048"
-    end   
+    end
 ```
 
-* Remplacer le code 
+* Remplacer le code
 ```
   # config.vm.provision "shell", inline: <<-SHELL
   #   apt-get update
@@ -98,12 +98,9 @@ config.vm.provision "shell", inline: <<-SHELL
 
      apt update
      apt upgrade -y
-     apt install -y python-software-properties
-     apt update
-     apt upgrade -y
-     apt-get update
      apt-get install -y software-properties-common
      apt-add-repository --yes --update ppa:ansible/ansible
+     apt-get update
      apt-get -y install ansible
      echo "${ip}" >> /etc/ansible/host
 
